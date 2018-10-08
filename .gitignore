@@ -29,7 +29,7 @@
 # Ignore test folder and files
 /test/*
 
-# private
-
+# private policy
 /config/credentials.yml.enc
 /config/master.key
+
