@@ -66,3 +66,6 @@ gem 'rubocop', '~> 0.59.2', require: false
 
 #devise
 gem 'devise'
+
+gem 'devise_token_auth'
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
