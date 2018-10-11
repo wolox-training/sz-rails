@@ -13,27 +13,27 @@ describe Book, type: :model do
   end
 
   it 'presence of genre' do
-    should validate_presence_of(:genre)
+    is_expected.to validate_presence_of(:genre)
   end
 
   it 'presence of autor' do
-    should validate_presence_of(:autor)
+    is_expected.to validate_presence_of(:autor)
   end
 
   it 'presence of image' do
-    should validate_presence_of(:image)
+    is_expected.to validate_presence_of(:image)
   end
 
   it 'presence of title' do
-    should validate_presence_of(:title)
+    is_expected.to validate_presence_of(:title)
   end
 
   it 'presence of editor' do
-    should validate_presence_of(:editor)
+    is_expected.to validate_presence_of(:editor)
   end
 
   it 'presence of year' do
-    should validate_presence_of(:year)
+    is_expected.to validate_presence_of(:year)
   end
 
   describe '#create' do
