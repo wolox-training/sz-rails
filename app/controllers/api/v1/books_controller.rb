@@ -1,4 +1,4 @@
-class BooksController < ApplicationController
+class Api::V1::BooksController < ApplicationController
   before_action :set_book, only: [:show]
 
   def index
@@ -13,15 +13,14 @@ class BooksController < ApplicationController
       render json: @book, serializer: BookSerializer
     else
       render json: {
-        error: 'There is no record'
-      }, status: 403
+        error: 'There is no book.'
+      }, status: :internal_server_error
     end
   end
 
   private
 
-    def set_book
-      Book.find_by(id: params[:id])
-    end
-
+  def set_book
+    Book.find_by(id: params[:id])
+  end
 end
