@@ -1,8 +1,7 @@
 class User < ApplicationRecord
-  # Include default devise modules.
+  include DeviseTokenAuth::Concerns::User
   devise  :database_authenticatable, :registerable, :recoverable, :rememberable,
           :trackable, :validatable#, :confirmable, :omniauthable
 
-  include DeviseTokenAuth::Concerns::User
   validates :first_name, :last_name, presence: true
 end
