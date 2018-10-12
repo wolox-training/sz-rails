@@ -75,3 +75,6 @@ gem 'devise'
 
 gem 'devise_token_auth'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'wor-paginate'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'versionist'
