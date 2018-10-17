@@ -62,6 +62,7 @@ group :test do
   gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'factory_bot'
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
