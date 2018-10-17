@@ -17,11 +17,12 @@ ActiveRecord::Schema.define(version: 2018_10_12_213338) do
 
   create_table "books", force: :cascade do |t|
     t.string "genre"
-    t.string "autor"
+    t.string "author"
     t.string "image"
     t.string "title"
-    t.string "editor"
+    t.string "publisher"
     t.string "year"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
