@@ -3,12 +3,12 @@ require 'rails_helper'
 describe Book, type: :model do
   subject(:book) do
     described_class.new(
-      genre:    genre,
-      autor:    autor,
-      image:    image,
-      title:    title,
-      editor:   editor,
-      year:     year
+      genre:      genre,
+      author:     author,
+      image:      image,
+      title:      title,
+      publisher:  publisher,
+      year:       year
     )
   end
 
@@ -16,20 +16,16 @@ describe Book, type: :model do
     is_expected.to validate_presence_of(:genre)
   end
 
-  it 'presence of autor' do
-    is_expected.to validate_presence_of(:autor)
-  end
-
-  it 'presence of image' do
-    is_expected.to validate_presence_of(:image)
+  it 'presence of author' do
+    is_expected.to validate_presence_of(:author)
   end
 
   it 'presence of title' do
     is_expected.to validate_presence_of(:title)
   end
 
-  it 'presence of editor' do
-    is_expected.to validate_presence_of(:editor)
+  it 'presence of publisher' do
+    is_expected.to validate_presence_of(:publisher)
   end
 
   it 'presence of year' do
@@ -44,15 +40,8 @@ describe Book, type: :model do
       end
     end
 
-    context 'When the autor is nil' do
-      let(:autor) { nil }
-      it do
-        is_expected.to be_invalid
-      end
-    end
-
-    context 'When the image is nil' do
-      let(:image) { nil }
+    context 'When the author is nil' do
+      let(:author) { nil }
       it do
         is_expected.to be_invalid
       end
@@ -65,8 +54,8 @@ describe Book, type: :model do
       end
     end
 
-    context 'When the editor is nil' do
-      let(:editor) { nil }
+    context 'When the publisher is nil' do
+      let(:publisher) { nil }
       it do
         is_expected.to be_invalid
       end
@@ -80,10 +69,10 @@ describe Book, type: :model do
     end
   end
 
-  let(:genre)   { Faker::Book.genre }
-  let(:autor)   { Faker::Book.author }
-  let(:image)   { 'blah.jpg' }
-  let(:title)   { Faker::Book.title }
-  let(:editor)  { Faker::Name.name }
-  let(:year)    { Time.now.in_time_zone(-5) }
+  let(:genre)       { Faker::Book.genre }
+  let(:author)      { Faker::Book.author }
+  let(:image)       { 'blah.jpg' }
+  let(:title)       { Faker::Book.title }
+  let(:publisher)   { Faker::Book.publisher }
+  let(:year)        { Time.now.in_time_zone(-5) }
 end
