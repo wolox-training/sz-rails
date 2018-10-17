@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_213338) do
     t.string "title"
     t.string "publisher"
     t.string "year"
-    t.text "description"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
