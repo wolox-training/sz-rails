@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Book, type: :model do
+describe Book do
   subject(:book) { build(:book) }
 
   it { is_expected.to be_valid }
