@@ -1,6 +1,6 @@
 class Rent < ApplicationRecord
-  belongs_to :user
-  belongs_to :book
+  belongs_to :user, optional: true
+  belongs_to :book, optional: true
 
-  validates :start_rent_date, :end_rent_date, presence: true
+  validates :start_date, :end_date, presence: true
 end
