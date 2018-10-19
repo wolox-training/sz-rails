@@ -5,6 +5,6 @@ FactoryBot.define do
     image       { 'blah.jpg' }
     title       { Faker::Book.title }
     publisher   { Faker::Book.publisher }
-    year        { Time.now.in_time_zone(-5) }
+    year        { Time.new.in_time_zone(-5).beginning_of_year }
   end
 end
