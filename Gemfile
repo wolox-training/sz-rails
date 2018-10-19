@@ -72,7 +72,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rubocop', '~> 0.59.2', require: false
 gem 'devise'
 gem 'devise_token_auth'
-gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'wor-paginate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'versionist'
