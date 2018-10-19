@@ -56,6 +56,13 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+
+  gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'rails-controller-testing' # If you are using Rails 5.x
+  gem 'factory_bot'
+  gem 'faker'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -66,4 +73,3 @@ gem 'rubocop', '~> 0.59.2', require: false
 gem 'devise'
 gem 'devise_token_auth'
 gem 'versionist'
-
