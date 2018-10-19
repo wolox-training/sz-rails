@@ -1,12 +1,13 @@
 class CreateBooks < ActiveRecord::Migration[5.2]
   def change
     create_table :books do |t|
-      t.string :genre
-      t.string :autor
+      t.string :genre, null: false
+      t.string :author, null: false
       t.string :image
-      t.string :title
-      t.string :editor
-      t.string :year
+      t.string :title, null: false
+      t.string :publisher, null: false
+      t.string :year, null: false
+      t.string :description
 
       t.timestamps
     end

@@ -62,6 +62,7 @@ group :test do
   gem 'rails-controller-testing' # If you are using Rails 5.x
   gem 'factory_bot'
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -69,9 +70,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Lint
 gem 'rubocop', '~> 0.59.2', require: false
-
-#devise
 gem 'devise'
-
 gem 'devise_token_auth'
-gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'versionist'
