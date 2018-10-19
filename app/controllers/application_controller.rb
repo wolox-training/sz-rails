@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   include DeviseTokenAuth::Concerns::SetUserByToken
-  # before_action :authenticate_admin!
   include Wor::Paginate
+
+  protect_from_forgery with: :null_session
+  before_action :authenticate_api_v1_user!
 end
