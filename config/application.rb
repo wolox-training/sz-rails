@@ -15,9 +15,5 @@ module WbooksApi
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-
-    config.to_prepare do
-      DeviseTokenAuth::ApplicationController.skip_before_action :authenticate_api_v1_user!
-    end
   end
 end

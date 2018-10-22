@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApplicationController
-      before_action :set_book, only: [:show]
+      # before_action :authenticate_api_v1_user!
 
       def index
         @books = Book.all
@@ -9,21 +9,12 @@ module Api
       end
 
       def show
-        @book = set_book
-
+        @book = Book.find_by(id: params[:id])
         if @book
           render json: @book, serializer: BookSerializer
         else
-          render json: {
-            error: 'There is no book.'
-          }, status: :internal_server_error
+          not_found
         end
-      end
-
-      private
-
-      def set_book
-        Book.find_by(id: params[:id])
       end
     end
   end
