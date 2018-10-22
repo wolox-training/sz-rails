@@ -3,7 +3,18 @@ class Rent < ApplicationRecord
   belongs_to :book, optional: true
 
   validates :start_date, :end_date, presence: true
-  validate :check_dates
+  validate :check_creation
+
+  scope :from_today, -> { where('DATE(?) BETWEEN start_date AND end_date', Time.zone.today) }
+
+  def reserve_conflict?
+    if book_id
+      rents = Rent.from_today.where(book_id: book_id)
+      rents.any?
+    else
+      false
+    end
+  end
 
   def valid_dates?
     in_range? && today_valid?
@@ -19,7 +30,7 @@ class Rent < ApplicationRecord
 
   private
 
-  def check_dates
-    errors.add(:model_rent, 'dates do not meet the requirements.') unless valid_dates?
+  def check_creation
+    errors.add(:model_rent, 'dates creation error') unless valid_dates? && !reserve_conflict?
   end
 end
