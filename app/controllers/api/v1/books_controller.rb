@@ -5,7 +5,7 @@ module Api
 
       def index
         @books = Book.all
-        render_paginated @books, each_serializer: BookSerializer
+        render_paginated @books, each_serializer: BookIndexSerializer
       end
 
       def show

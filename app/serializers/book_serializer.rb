@@ -1,4 +1,5 @@
 class BookSerializer < ActiveModel::Serializer
-  attributes :id, :genre, :author, :image, :title, :publisher, :year
-  has_many :rents
+  attributes  :id, :author, :title, :image,
+              :publisher, :year, :genre,
+              :created_at, :updated_at, :actual_rent
 end
