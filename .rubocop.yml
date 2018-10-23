@@ -10,4 +10,3 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
-  
