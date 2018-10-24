@@ -10,11 +10,8 @@ module Api
 
       def show
         @book = Book.find_by(id: params[:id])
-        if @book
-          render json: @book
-        else
-          not_found
-        end
+        not_found && return if @book.nil?
+        render json: @book
       end
     end
   end
