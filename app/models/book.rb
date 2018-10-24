@@ -4,6 +4,6 @@ class Book < ApplicationRecord
   validates :genre, :author, :title, :publisher, :year, presence: true
 
   def actual_rent
-    rents.from_today
+    rents.from_today.first
   end
 end

@@ -11,7 +11,7 @@ module Api
       def show
         @book = Book.find_by(id: params[:id])
         if @book
-          render json: @book, serializer: BookSerializer
+          render json: @book
         else
           not_found
         end
