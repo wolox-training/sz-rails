@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
-  def index; end
-
   def not_found
     render json: { error: "record not found with id #{params[:id]}" }, status: :not_found
   end
