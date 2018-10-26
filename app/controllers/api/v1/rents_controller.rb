@@ -1,7 +1,7 @@
 module Api
   module V1
     class RentsController < ApplicationController
-      # before_action :authenticate_api_v1_user!
+      before_action :authenticate_api_v1_user!
 
       def index
         @rents = Rent.all
@@ -10,8 +10,7 @@ module Api
 
       def create
         rent = Rent.create(rent_params)
-        raise rent.inspect
-        # render json: rent, serializer: RentIndexSerializer
+        render json: rent, status: :created
       end
 
       private
