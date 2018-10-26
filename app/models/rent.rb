@@ -8,8 +8,8 @@ class Rent < ApplicationRecord
 
   scope :from_today, -> { where('DATE(?) BETWEEN start_date AND end_date', Time.zone.today) }
 
-  scope :overlapping_ranges, lambda { |book_id, start_date, end_date|
-    where(book_id: book_id).where(
+  scope :overlapping_ranges, lambda { |id, book_id, start_date, end_date|
+    where(book_id: book_id).where.not(id: id).where(
       "(:start_date >= start_date AND :start_date <= end_date) OR
       (:end_date >= start_date AND :end_date <= end_date) OR
       (:start_date <= start_date AND :end_date >= end_date)",
@@ -21,7 +21,7 @@ class Rent < ApplicationRecord
   protected
 
   def overlapping?
-    book_id.nil? || Rent.overlapping_ranges(book_id, start_date, end_date).count.zero?
+    book_id.nil? || Rent.overlapping_ranges(id, book_id, start_date, end_date).count.zero?
   end
 
   private
