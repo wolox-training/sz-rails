@@ -10,6 +10,7 @@ module Api
 
       def create
         rent = Rent.create!(rent_params)
+        GeneralMailer.finish_rent(rent).deliver_later(wait: 10.seconds)
         render json: rent, status: :created
       end
 

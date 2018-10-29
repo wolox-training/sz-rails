@@ -5,6 +5,6 @@ class GeneralMailer < ApplicationMailer
     @rent = rent
     @book = @rent.book
     @user = @rent.user
-    mail(to: @user.email, subject: 'Alquiler finalizado')
+    mail(to: @user.email, subject: 'Alquiler finalizado') if @book && @user
   end
 end
