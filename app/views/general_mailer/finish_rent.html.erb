@@ -6,14 +6,14 @@
   <body>
     <h1>Hola <%= @user.full_name %></h1>
     <p>
-      La reserva de tu libro
-      <%= @book.title.mb_chars.titleize %> ha finalizado.
+      La reserva de tu libro ha finalizado.
     </p>
-
-    <table>
-      <thead>
-        <th>Elemento</th>
-        <th>Descripción</th>
+    <table style="text-align:left;">
+      <thead style="font-size:1.2rem;">
+        <tr>
+          <th>Elemento</th>
+          <th>Descripción</th>
+        </tr>
       </thead>
       <tbody>
         <tr>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
           <td>Fecha Alquiler</td>
-          <td><%= @rent.start_date %> - <%= @rent.end_date %></td>
+          <td><%= @rent.start_date %> A <%= @rent.end_date %></td>
         </tr>
       </tbody>
     </table>
