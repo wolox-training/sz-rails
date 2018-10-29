@@ -33,3 +33,5 @@
 /config/credentials.yml.enc
 /config/master.key
 
+# old private policy
+/.env
