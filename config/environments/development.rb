@@ -60,4 +60,14 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    user_name:      Rails.application.credentials.development[:mailer][:user_name],
+    password:       Rails.application.credentials.development[:mailer][:password],
+    address:        Rails.application.credentials.development[:mailer][:address],
+    domain:         Rails.application.credentials.development[:mailer][:domain],
+    port:           Rails.application.credentials.development[:mailer][:port], 
+    authentication: Rails.application.credentials.development[:mailer][:authentication]
+  }
 end
