@@ -2,6 +2,7 @@ module Api
   module V1
     class RentsController < ApplicationController
       before_action :authenticate_api_v1_user!
+      before_action :set_locale, only: [:create]
 
       def index
         render_paginated Rent.all, each_serializer: RentSerializer
