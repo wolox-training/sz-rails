@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
   rescue_from ActiveRecord::RecordInvalid, with: :validation_errors
 
+  before_action :set_locale
+
   def index; end
 
   private
@@ -16,5 +18,10 @@ class ApplicationController < ActionController::Base
 
   def validation_errors(exception)
     render json: { error: exception }, status: :internal_server_error
+  end
+
+  def set_locale
+    I18n.locale = 'en'
+    # I18n.locale = current_user.locale
   end
 end
