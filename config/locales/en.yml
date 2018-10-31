@@ -47,3 +47,8 @@ en:
         application_date: 'application date'
         rent_date: 'rent date'
         to: 'to'
+  time:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
