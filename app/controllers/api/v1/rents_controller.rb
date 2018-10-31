@@ -1,6 +1,6 @@
 module Api
   module V1
-    class RentsController < ApplicationController
+    class RentsController < ApiController
       before_action :authenticate_api_v1_user!
       before_action :set_locale, only: [:create]
 

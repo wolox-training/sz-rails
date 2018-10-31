@@ -76,3 +76,4 @@ gem 'wor-paginate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'versionist'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'activeadmin'
