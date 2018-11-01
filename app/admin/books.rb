@@ -11,6 +11,7 @@ ActiveAdmin.register Book do
     column :year
     column :genre
     column :description
+    column :actual_rent
     actions
   end
 
@@ -45,6 +46,7 @@ ActiveAdmin.register Book do
       row :description
       row :created_at
       row :updated_at
+      row :actual_rent
     end
   end
 end

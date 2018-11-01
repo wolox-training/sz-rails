@@ -8,6 +8,7 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :locale
+    column :confirmed_at
     actions
   end
 
