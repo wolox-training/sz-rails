@@ -14,6 +14,11 @@ class User < ApplicationRecord
   end
 
   def self.dropdown_options
-    order_by_email.map { |u| [u.email, u.id] }
+    users = order_by_email
+    if users.any?
+      users.map { |u| [u.email, u.id] }
+    else
+      []
+    end
   end
 end

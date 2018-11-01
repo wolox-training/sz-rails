@@ -10,6 +10,11 @@ class Book < ApplicationRecord
   end
 
   def self.dropdown_options
-    order_by_title.map { |u| [u.title, u.id] }
+    books = order_by_title
+    if books.any?
+      books.map { |u| [u.title, u.id] }
+    else
+      []
+    end
   end
 end

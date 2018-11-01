@@ -9,6 +9,7 @@ class ApiController < ActionController::Base
   def index; end
 
   def set_locale
+    I18n.default_locale = :en
     I18n.locale = current_api_v1_user.locale
   end
 
