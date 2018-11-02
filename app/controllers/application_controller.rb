@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :null_session
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordInvalid, with: :validation_errors
 
   def index; end
 
+  private
+
   def not_found
     render json: { error: "record not found with id #{params[:id]}" }, status: :not_found
+  end
+
+  def validation_errors(exception)
+    render json: { error: exception }, status: :internal_server_error
   end
 end
