@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :rents, dependent: :nullify
 
   validates :first_name, :last_name, presence: true
+
+  def full_name
+    "#{first_name.mb_chars.titleize} #{last_name.mb_chars.titleize}"
+  end
 end

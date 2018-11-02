@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hola <%= @user.full_name %></h1>
+    <p>
+      La reserva de tu libro ha finalizado.
+    </p>
+    <table style="text-align:left;">
+      <thead style="font-size:1.2rem;">
+        <tr>
+          <th>Elemento</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Libro</td>
+          <td><%= cool_text(@book.title) %></td>
+        </tr>
+        <tr>
+          <td>Autor</td>
+          <td><%= cool_text(@book.author) %></td>
+        </tr>
+        <tr>
+          <td>Genero</td>
+          <td><%= cool_text(@book.genre) %></td>
+        </tr>     
+        <tr>
+          <td>Año Publicación</td>
+          <td><%= @book.year %></td>
+        </tr>
+        <tr>
+          <td>Fecha Solicitud</td>
+          <td><%= human_date(@rent.created_at) %></td>
+        </tr>
+        <tr>
+          <td>Fecha Alquiler</td>
+          <td><%= @rent.start_date %> A <%= @rent.end_date %></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
