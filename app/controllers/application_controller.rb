@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
+  def index; end
+
   def not_found
     render json: { error: "record not found with id #{params[:id]}" }, status: :not_found
   end
