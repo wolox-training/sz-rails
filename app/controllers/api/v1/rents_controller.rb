@@ -4,8 +4,7 @@ module Api
       before_action :authenticate_api_v1_user!
 
       def index
-        @rents = Rent.all
-        render_paginated @rents, each_serializer: RentSerializer
+        render_paginated Rent.all, each_serializer: RentSerializer
       end
 
       def create
