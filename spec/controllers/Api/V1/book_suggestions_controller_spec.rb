@@ -6,20 +6,31 @@ describe Api::V1::BookSuggestionsController do
       subject(:user) { create(:user) }
       subject(:book_suggestion) { build(:book_suggestion, user: user) }
 
-      let(:valid_params) do
-        {
-          book_suggestion: book_suggestion.attributes
-        }
+      let(:valid_params) { { book_suggestion: book_suggestion.attributes } }
+      let(:http_request) { post :create, params: valid_params }
+      let(:serializer_json) do
+        BookSuggestionSerializer.new(
+          book_suggestion
+        ).to_json
       end
 
       it 'BookSuggestion created' do
-        expected = BookSuggestionSerializer.new(
-          book_suggestion
-        ).to_json
+        expect { http_request }.to change(BookSuggestion, :count).by(1)
+      end
 
-        expect { post :create, params: valid_params }.to change(BookSuggestion, :count).by(1)
+      it 'Responds with status 201' do
+        http_request
         expect(response).to have_http_status(:created)
-        expect(response.body) =~ JSON.parse(expected)
+      end
+
+      it 'Responds with correct serializer' do
+        http_request
+        expect(response.body) =~ JSON.parse(serializer_json)
+      end
+
+      it 'No error messages present' do
+        http_request
+        expect(response.body['error']).not_to be_present
       end
     end
   end
