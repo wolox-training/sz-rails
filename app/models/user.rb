@@ -4,6 +4,7 @@ class User < ApplicationRecord
           :trackable, :validatable # , :confirmable, :omniauthable
 
   has_many :rents, dependent: :nullify
+  has_many :book_suggestions, dependent: :nullify
 
   validates :first_name, :last_name, :locale, presence: true
 
