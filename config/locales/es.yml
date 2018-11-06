@@ -1,0 +1,18 @@
+es:
+  hello: "Hola Mundo"
+  rent_email:
+    subject:  'Alquiler finalizado'
+    title: 'Hola'
+    text: 'La reserva de tu libro ha finalizado.'
+    table:
+      head:
+        element: 'elemento'
+        description: 'descripcion'
+      body:
+        book: 'libro'
+        author: 'autor'
+        genre: 'genero'
+        year: 'año'
+        application_date: 'fecha de solicitud'
+        rent_date: 'fecha de alquiler'
+        to: 'a'

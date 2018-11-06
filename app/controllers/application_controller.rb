@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   def index; end
 
+  def set_locale
+    I18n.locale = current_api_v1_user.locale
+  end
+
   private
 
   def not_found

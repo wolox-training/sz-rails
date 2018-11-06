@@ -31,3 +31,19 @@
 
 en:
   hello: "Hello world"
+  rent_email:
+    subject:  'finished rental'
+    title:    'Hello'
+    text:     'The reservation of your book has ended.'
+    table:
+      head:
+        element: 'element'
+        description: 'description'
+      body:
+        book: 'book'
+        author: 'author'
+        genre: 'genre'
+        year: 'year'
+        application_date: 'application date'
+        rent_date: 'rent date'
+        to: 'to'
