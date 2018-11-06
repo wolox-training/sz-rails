@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'book_suggestions/create'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
