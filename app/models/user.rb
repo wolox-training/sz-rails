@@ -7,18 +7,9 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :locale, presence: true
 
-  scope :order_by_email, -> { order('email') }
+  scope :order_by_email, -> { order('email').map { |u| [u.email, u.id] } }
 
   def full_name
     "#{first_name.mb_chars.titleize} #{last_name.mb_chars.titleize}"
-  end
-
-  def self.dropdown_options
-    users = order_by_email
-    if users.any?
-      users.map { |u| [u.email, u.id] }
-    else
-      []
-    end
   end
 end

@@ -24,8 +24,8 @@ ActiveAdmin.register Rent do
     f.inputs do
       f.input :start_date
       f.input :end_date
-      f.input :book_id, label: 'Book', as: :select, collection: Book.dropdown_options
-      f.input :user_id, label: 'User', as: :select, collection: User.dropdown_options
+      f.input :book_id, label: 'Book', as: :select, collection: Book.order_by_title
+      f.input :user_id, label: 'User', as: :select, collection: User.order_by_email
     end
     f.actions
   end
