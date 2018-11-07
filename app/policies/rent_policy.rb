@@ -1,18 +1,11 @@
-class RentPolicy
-  attr_reader :user, :rent
-
-  def initialize(user, rent)
-    @user = user
-    @rent = rent
+class RentPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope.where(user: user)
+    end
   end
 
   def create?
-    @rent.user_id.nil? || user_is_owner_of_rent?
-  end
-
-  private
-
-  def user_is_owner_of_rent?
-    @user.id == @rent.user_id
+    record.user_id.nil? || record.user == user
   end
 end
