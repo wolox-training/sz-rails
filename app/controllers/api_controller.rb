@@ -27,7 +27,7 @@ class ApiController < ActionController::Base
 
   def user_not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
-    flash[:error] = t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
-    render json: { error: flash[:error] }, status: :unauthorized
+    message = t "#{policy_name}.#{exception.query}", scope: 'pundit', default: :default
+    render json: { error: message }, status: :forbidden
   end
 end
