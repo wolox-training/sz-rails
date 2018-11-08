@@ -7,6 +7,7 @@ class Rent < ApplicationRecord
   validate :in_range, :check_creation
 
   scope :from_today, -> { where('DATE(?) BETWEEN start_date AND end_date', Time.zone.today) }
+  scope :end_today, -> { where(end_date: Time.zone.today) }
 
   scope :overlapping_ranges, lambda { |id, book_id, start_date, end_date|
     where(book_id: book_id).where.not(id: id).where(
