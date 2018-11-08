@@ -31,7 +31,7 @@ ActiveAdmin.register BookSuggestion do
       f.input :link
       f.input :publisher
       f.input :year
-      f.input :user_id, label: 'User', as: :select, collection: User.dropdown_options
+      f.input :user_id, label: 'User', as: :select, collection: User.order_by_email
     end
     f.actions
   end
