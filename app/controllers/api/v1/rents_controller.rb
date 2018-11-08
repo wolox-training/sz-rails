@@ -1,15 +1,20 @@
 module Api
   module V1
     class RentsController < ApiController
-      before_action :authenticate_api_v1_user!
+      before_action :authenticate_user!
       before_action :set_locale, only: [:create]
 
+      after_action :verify_authorized, except: :index
+
       def index
-        render_paginated Rent.all, each_serializer: RentSerializer
+        @rents = current_user.rents
+        render_paginated @rents, each_serializer: RentSerializer
       end
 
       def create
-        rent = Rent.create!(rent_params)
+        rent = Rent.new(rent_params)
+        authorize rent
+        rent.save!
         GeneralMailer.finish_rent(rent).deliver_later(wait: 1.second)
         render json: rent, status: :created
       end

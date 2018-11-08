@@ -77,3 +77,5 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'versionist'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'activeadmin'
+gem "pundit"
+gem 'rails-i18n' # Provides default i18n for many languages 

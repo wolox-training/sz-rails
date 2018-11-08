@@ -1,7 +1,7 @@
 module Api
   module V1
     class BooksController < ApiController
-      before_action :authenticate_api_v1_user!
+      before_action :authenticate_user!
 
       def index
         @books = Book.all
