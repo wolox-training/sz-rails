@@ -1,9 +1,10 @@
 module Api
   module V1
     class RentsController < ApiController
+      include AwesomeDate
+
       before_action :authenticate_user!
       before_action :set_locale, only: [:create]
-
       after_action :verify_authorized, except: :index
 
       def index
@@ -15,7 +16,7 @@ module Api
         rent = Rent.new(rent_params)
         authorize rent
         rent.save!
-        RentWorker.perform_in(15.seconds, rent.id)
+        RentWorker.perform_in(calculate_days_from_today(rent).days, rent.id)
         render json: rent, status: :created
       end
 
