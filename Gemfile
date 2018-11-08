@@ -80,3 +80,4 @@ gem 'activeadmin'
 gem "pundit"
 gem 'rails-i18n' # Provides default i18n for many languages
 gem "httparty"
+gem 'sidekiq'

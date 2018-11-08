@@ -15,7 +15,7 @@ module Api
         rent = Rent.new(rent_params)
         authorize rent
         rent.save!
-        GeneralMailer.finish_rent(rent).deliver_later(wait: 1.second)
+        RentWorker.perform_in(15.seconds, rent.id)
         render json: rent, status: :created
       end
 
