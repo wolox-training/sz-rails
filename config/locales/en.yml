@@ -47,6 +47,10 @@ en:
         application_date: 'application date'
         rent_date: 'rent date'
         to: 'to'
+  rent_create_email:
+    subject:  'rental created'
+    title:    'Hi!'
+    text:     'You are created a new book reservation'
   time:
     formats:
       default: "%Y/%m/%d"
