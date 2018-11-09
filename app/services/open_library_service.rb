@@ -4,43 +4,26 @@ module OpenLibraryService
   def book_info(isbn)
     url = "https://openlibrary.org/api/books?bibkeys=ISBN:#{isbn}&format=json&jscmd=data"
     response = HTTParty.get(url)
-    response_wrap(JSON.parse(response.body))
+    response_wrap(JSON.parse(response.body), isbn)
   end
 
   private
 
-  def response_wrap(response_body)
+  def response_wrap(response_body, isbn)
     if response_body.keys.any?
-      correct_fill(response_body, get_primary_key(response_body))
+      correct_fill(response_body["ISBN:#{isbn}"], isbn)
     else
       { message: 'Information not found.' }
     end
   end
 
-  def correct_fill(response_body, primary_key)
+  def correct_fill(response_body, isbn)
     {
-      ISBN:             get_isbn(primary_key),
-      Title:            response_body[primary_key]['title'],
-      Subtitle:         response_body[primary_key]['subtitle'],
-      Number_of_pages:  response_body[primary_key]['number_of_pages'],
-      Authors:          get_authors(response_body[primary_key]['authors'])
+      ISBN:             isbn,
+      Title:            response_body['title'],
+      Subtitle:         response_body['subtitle'],
+      Number_of_pages:  response_body['number_of_pages'],
+      Authors:          response_body['authors'].map { |a| a['name'] }
     }
-  end
-
-  def get_primary_key(response_body)
-    response_body.keys.first
-  end
-
-  def get_isbn(response_body)
-    values = response_body.split(':')
-    values.first.casecmp('isbn').zero? ? values.last : 'error'
-  end
-
-  def get_authors(json)
-    authors = []
-    json.each do |author|
-      authors << author['name']
-    end
-    authors
   end
 end

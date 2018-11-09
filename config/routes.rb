@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   api_version(module: 'api/v1', path: { value: 'api/v1' }) do
     resources :books, only: [:index, :show, :external] do
-      get :information, on: :collection
+      collection do
+        get :information
+      end
     end
     resources :rents, only: [:index, :create]
     resources :book_suggestions, only: [:create]
