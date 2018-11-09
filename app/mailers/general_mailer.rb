@@ -8,4 +8,12 @@ class GeneralMailer < ApplicationMailer
     subject = t('rent_email.subject').titleize
     mail(to: @user.email, subject: subject) if @book && @user
   end
+
+  def create_rent(rent_id)
+    @rent = Rent.find(rent_id)
+    @book = @rent.book
+    @user = @rent.user
+    subject = t('rent_create_email.subject').titleize
+    mail(to: @user.email, subject: subject) if @book && @user
+  end
 end

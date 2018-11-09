@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>
+      <%= "#{t'rent_create_email.title'} #{@user.full_name}" %>
+    </h1>
+    <p style="font-size:1.2rem;"><%= t'rent_create_email.text' %></p>
+    <table style="text-align:left;">
+      <thead style="font-size:1.2rem;">
+        <tr>
+          <th><%= t('rent_email.table.head.element').titleize %></th>
+          <th><%= t('rent_email.table.head.description').titleize %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= t'rent_email.table.body.book' %></td>
+          <td><%= cool_text(@book.title) %></td>
+        </tr>
+        <tr>
+          <td><%= t'rent_email.table.body.author' %></td>
+          <td><%= cool_text(@book.author) %></td>
+        </tr>
+        <tr>
+          <td><%= t'rent_email.table.body.genre' %></td>
+          <td><%= cool_text(@book.genre) %></td>
+        </tr>     
+        <tr>
+          <td><%= t'rent_email.table.body.year' %></td>
+          <td><%= @book.year %></td>
+        </tr>
+        <tr>
+          <td><%= t'rent_email.table.body.application_date' %></td>
+          <td><%= human_date(@rent.created_at) %></td>
+        </tr>
+        <tr>
+          <td><%= t'rent_email.table.body.rent_date' %></td>
+          <td><%= "#{@rent.start_date} #{(t'rent_email.table.body.to').upcase} #{@rent.end_date}" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

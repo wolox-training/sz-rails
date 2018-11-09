@@ -16,6 +16,10 @@ es:
         application_date: 'fecha de solicitud'
         rent_date: 'fecha de alquiler'
         to: 'a'
+  rent_create_email:
+    subject:  'Alquiler creado'
+    title:    'Hola!'
+    text:     'Tu has creado una nueva reservación'
   time:
     formats:
       default: "%Y/%m/%d"
