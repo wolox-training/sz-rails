@@ -3,23 +3,29 @@ require 'rails_helper'
 describe Api::V1::BookSuggestionsController do
   describe 'POST #Create' do
     context 'When create BookSuggestion' do
-      subject(:user) { create(:user) }
-      subject(:book_suggestion) { build(:book_suggestion, user: user) }
-
-      let(:valid_params) do
-        {
-          book_suggestion: book_suggestion.attributes
-        }
-      end
+      let(:book_suggestion) { attributes_for(:book_suggestion) }
+      let(:http_request)    { post :create, params: { book_suggestion: book_suggestion } }
 
       it 'BookSuggestion created' do
-        expected = BookSuggestionSerializer.new(
-          book_suggestion
-        ).to_json
+        expect { http_request }.to change(BookSuggestion, :count).by(1)
+      end
 
-        expect { post :create, params: valid_params }.to change(BookSuggestion, :count).by(1)
+      it 'Responds with status 201' do
+        http_request
         expect(response).to have_http_status(:created)
-        expect(response.body) =~ JSON.parse(expected)
+      end
+
+      it 'Responds with correct serializer' do
+        http_request
+        serializer = BookSuggestionSerializer.new(
+          book_suggestion
+        )
+        expect(response.body) =~ serializer
+      end
+
+      it 'No error messages present' do
+        http_request
+        expect(response.body['error']).not_to be_present
       end
     end
   end
