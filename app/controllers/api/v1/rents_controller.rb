@@ -1,8 +1,6 @@
 module Api
   module V1
     class RentsController < ApiController
-      include AwesomeDate
-
       before_action :authenticate_user!
       after_action :verify_authorized, except: :index
 
