@@ -5,7 +5,7 @@ class RentWorker
 
   def perform
     rents_id = Rent.end_today.pluck(:id)
-    send_emails(rents_id) if rents_id.any?
+    send_emails(rents_id)
   end
 
   private
