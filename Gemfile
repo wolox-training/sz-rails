@@ -78,4 +78,5 @@ gem 'versionist'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'activeadmin'
 gem "pundit"
-gem 'rails-i18n' # Provides default i18n for many languages 
+gem 'rails-i18n' # Provides default i18n for many languages
+gem "httparty"
