@@ -3,16 +3,8 @@ require 'rails_helper'
 describe Api::V1::BookSuggestionsController do
   describe 'POST #Create' do
     context 'When create BookSuggestion' do
-      subject(:user) { create(:user) }
-      subject(:book_suggestion) { build(:book_suggestion, user: user) }
-
-      let(:valid_params) { { book_suggestion: book_suggestion.attributes } }
-      let(:http_request) { post :create, params: valid_params }
-      let(:serializer_json) do
-        BookSuggestionSerializer.new(
-          book_suggestion
-        ).to_json
-      end
+      let(:book_suggestion) { attributes_for(:book_suggestion) }
+      let(:http_request)    { post :create, params: { book_suggestion: book_suggestion } }
 
       it 'BookSuggestion created' do
         expect { http_request }.to change(BookSuggestion, :count).by(1)
@@ -25,7 +17,10 @@ describe Api::V1::BookSuggestionsController do
 
       it 'Responds with correct serializer' do
         http_request
-        expect(response.body) =~ JSON.parse(serializer_json)
+        serializer = BookSuggestionSerializer.new(
+          book_suggestion
+        )
+        expect(response.body) =~ serializer
       end
 
       it 'No error messages present' do
