@@ -1,0 +1,10 @@
+### Sass ###
+Maquetado/.sass-cache/
+Maquetado/.scss-cache/
+Maquetado/*.css.map
+Maquetado/*.sass.map
+Maquetado/*.scss.map
+Maquetado/*.css
+
+## System ##
+.DS_Store
