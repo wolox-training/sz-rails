@@ -1,0 +1,49 @@
+@import 'colors';
+
+%card-radius {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.tech {
+  height: 29rem;
+  margin: auto;
+  padding: 1rem;
+  width: 20rem;
+
+  .base{
+    @extend %card-radius;
+    background: white;
+    border: 2px $green solid;
+    height: 100%;
+
+    .upper {
+      @extend %card-radius;
+      align-items: center;
+      background: $green;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 1rem 0 0 1rem;
+      padding: 1rem;
+      width: 100%;
+
+      img {
+        height: 9rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+        margin: 0.5rem 0;
+        text-align: center;
+
+        &.bold {
+          font-weight: bold;
+          margin: 0.5rem 0 1rem;
+        }
+      }
+    }
+  }
+}
