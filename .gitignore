@@ -5,33 +5,45 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+/WbooksAPI/.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/WbooksAPI/log/*
+/WbooksAPI/tmp/*
+!/WbooksAPI/log/.keep
+!/WbooksAPI/tmp/.keep
 
 # Ignore uploaded files in development
-/storage/*
-!/storage/.keep
+/WbooksAPI/storage/*
+!/WbooksAPI/storage/.keep
 
-/node_modules
-/yarn-error.log
+/WbooksAPI/node_modules
+/WbooksAPI/yarn-error.log
 
-/public/assets
-.byebug_history
+/WbooksAPI/public/assets
+/WbooksAPI/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+/WbooksAPI/config/master.key
 
 # Ignore test folder and files
-/test/*
+/WbooksAPI/test/*
 
 # private policy
-/config/credentials.yml.enc
-/config/master.key
+/WbooksAPI/config/credentials.yml.enc
+/WbooksAPI/config/master.key
 
 # old private policy
-/.env
+/WbooksAPI/.env
+
+
+### Maquetado/Sass ###
+Maquetado/.sass-cache/
+Maquetado/.scss-cache/
+Maquetado/*.css.map
+Maquetado/*.sass.map
+Maquetado/*.scss.map
+Maquetado/*.css
+
+## System ##
+.DS_Store
