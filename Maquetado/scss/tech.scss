@@ -12,44 +12,40 @@
   padding: 0 80px;
 
   .tech {
-    height: 512px;
-    padding: 16px;
+    @extend %card-radius;
+    background: white;
+    border: 2px $green solid;
+    height: 464px;
+    margin: 18px;
     width: 320px;
 
-    .base{
+    .upper {
       @extend %card-radius;
-      background: white;
-      border: 2px $green solid;
+      align-items: center;
+      background: $green;
+      display: flex;
+      flex-direction: column;
       height: 100%;
+      margin: 16px 0 0 16px;
+      padding: 16px;
+      width: 100%;
 
-      .upper {
-        @extend %card-radius;
-        align-items: center;
-        background: $green;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        margin: 16px 0 0 16px;
-        padding: 16px;
-        width: 100%;
+      img {
+        height: 144px;
+        margin-bottom: 16px;
+        max-width: 100%;
+      }
 
-        img {
-          height: 144px;
-          margin-bottom: 16px;
-          max-width: 100%;
-        }
+      h4, span {
+        font-size: 21px;
+        margin: 8px 0;
+        text-align: center;
+      }
 
-        h4, span {
-          font-size: 20.8px;
-          margin: 8px 0;
-          text-align: center;
-        }
-
-        h4 {
-          &.bold {
-            font-weight: bold;
-            margin: 8px 0 16px;
-          }
+      h4 {
+        &.bold {
+          font-weight: bold;
+          margin: 8px 0 16px;
         }
       }
     }
