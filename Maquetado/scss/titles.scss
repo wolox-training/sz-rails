@@ -4,6 +4,7 @@
   display: flex;
   justify-content: flex-start;
   margin: 48px 0 16px 0;
+  position: relative;
 
   &:first-child{
     margin-top: 0;
@@ -12,10 +13,12 @@
   h3 {
     align-self: center;
     font-size: $text-big;
-    margin-left: -17.6px;
+    left: calc(#{$title-decoration-width} - (#{$text-big} / 1.4));
+    position: absolute;
   }
 
   img {
     height: $tech-logo-size;
+    width: $title-decoration-width;
   }
 }
