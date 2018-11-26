@@ -1,8 +1,9 @@
+@impoort 'site-sizes';
+
 .title {
   display: flex;
   justify-content: flex-start;
   margin: 48px 0 16px 0;
-  margin-bottom: 16px;
 
   &:first-child{
     margin-top: 0;
@@ -10,11 +11,11 @@
 
   h3 {
     align-self: center;
-    font-size: 28px;
+    font-size: $text-big;
     margin-left: -17.6px;
   }
 
   img {
-    height: 96px;
+    height: $tech-logo-size;
   }
 }
