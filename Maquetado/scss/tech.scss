@@ -31,24 +31,24 @@
       width: 100%;
 
       img {
-        height: 144px;
-        margin-bottom: 16px;
-        max-width: 100%;
-        object-fit: contain;
-        width: 176px;
+        &.icon{
+          height: 144px;
+          margin-bottom: 16px;
+          max-width: 100%;
+          object-fit: contain;
+          width: 176px;
+        }
       }
 
-      h4, span {
+      .text {
         font-size: 21px;
         margin: 8px 0;
         text-align: center;
       }
 
-      h4 {
-        &.bold {
-          font-weight: bold;
-          margin: 8px 0 16px;
-        }
+      .bold {
+        font-weight: bold;
+        margin: 8px 0 16px;
       }
     }
   }
