@@ -6,41 +6,50 @@
   border-radius: 5px;
 }
 
-.tech {
-  @extend %card-radius;
-  background: white;
-  border: 2px $green solid;
-  height: 464px;
-  margin: auto;
-  width: 320px;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 80px;
 
-  .upper {
+  .tech {
     @extend %card-radius;
-    align-items: center;
-    background: $green;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    margin: 16px 0 0 16px;
-    padding: 16px;
-    width: 100%;
+    background: white;
+    border: 2px $green solid;
+    height: 464px;
+    margin: 18px;
+    width: 320px;
 
-    img {
-      &.icon{
-        height: 144px;
-        margin-bottom: 16px;
+    .upper {
+      @extend %card-radius;
+      align-items: center;
+      background: $green;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 16px 0 0 16px;
+      padding: 16px;
+      width: 100%;
+
+      img {
+        &.icon{
+          height: 144px;
+          margin-bottom: 16px;
+          max-width: 100%;
+          object-fit: contain;
+          width: 176px;
+        }
       }
-    }
 
-    .text {
-      font-size: 21px;
-      margin: 8px 0;
-      text-align: center;
-    }
+      .text {
+        font-size: 21px;
+        margin: 8px 0;
+        text-align: center;
+      }
 
-    .bold {
-      font-weight: bold;
-      margin: 8px 0 16px;
+      .bold {
+        font-weight: bold;
+        margin: 8px 0 16px;
+      }
     }
   }
 }
