@@ -1,6 +1,9 @@
+@impoort 'site-sizes';
+
 .title {
   display: flex;
   justify-content: flex-start;
+  position: relative;
   margin: 48px 0 16px 0;
   margin-bottom: 16px;
 
@@ -8,13 +11,17 @@
     margin-top: 0;
   }
 
-  h3 {
+  .description {
     align-self: center;
-    font-size: 28px;
-    margin-left: -17.6px;
+    font-size: $text-big;
+    left: calc(#{$title-decoration-width} - (#{$text-big} / 1.4));
+    position: absolute;
   }
 
   img {
-    height: 96px;
+    &.triangle {
+      height: $tech-logo-size;
+      width: $title-decoration-width;
+    }
   }
 }
