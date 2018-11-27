@@ -5,13 +5,11 @@
   justify-content: flex-start;
   position: relative;
 
-  h3 {
-    &.description {
-      align-self: center;
-      font-size: $text-big;
-      left: calc(#{$title-decoration-width} - (#{$text-big} / 1.4));
-      position: absolute;
-    }
+  .description {
+    align-self: center;
+    font-size: $text-big;
+    left: calc(#{$title-decoration-width} - (#{$text-big} / 1.4));
+    position: absolute;
   }
 
   img {
