@@ -45,6 +45,7 @@
         background: transparent;
         border: 2px $green solid;
         content: '';
+        max-width: 100%;
         position: absolute;
         height: $card-height;
         width: $card-width;
@@ -52,30 +53,30 @@
       }
 
       &:hover {
-        &::before{
+        &::before {
           @include background_transition(12px, 12px);
         }
       }
 
       img {
-        height: $title-decoration-height;
-        margin-bottom: 16px;
-        max-width: 100%;
-        object-fit: contain;
-        width: 176px;
+        &.icon {
+          height: $title-decoration-height;
+          margin-bottom: 16px;
+          max-width: 100%;
+          object-fit: contain;
+          width: 176px;
+        }
       }
 
-      h4, span {
+      .text {
         font-size: $card-text;
         margin: 8px 0;
         text-align: center;
       }
 
-      h4 {
-        &.bold {
-          font-weight: bold;
-          margin: 8px 0 16px;
-        }
+      .bold {
+        font-weight: bold;
+        margin: 8px 0 16px;
       }
     }
   }
