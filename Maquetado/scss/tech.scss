@@ -26,8 +26,10 @@
     width: 100%;
 
     img {
-      height: 144px;
-      margin-bottom: 16px;
+      &.icon{
+        height: 144px;
+        margin-bottom: 16px;
+      }
     }
 
     h4, span {
@@ -36,11 +38,9 @@
       text-align: center;
     }
 
-    h4 {
-      &.bold {
-        font-weight: bold;
-        margin: 8px 0 16px;
-      }
+    .bold {
+      font-weight: bold;
+      margin: 8px 0 16px;
     }
   }
 }
