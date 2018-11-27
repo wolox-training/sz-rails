@@ -1,0 +1,21 @@
+@impoort 'site-sizes';
+
+.title {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+
+  .description {
+    align-self: center;
+    font-size: $text-big;
+    left: calc(#{$title-decoration-width} - (#{$text-big} / 1.4));
+    position: absolute;
+  }
+
+  img {
+    &.triangle {
+      height: $tech-logo-size;
+      width: $title-decoration-width;
+    }
+  }
+}
