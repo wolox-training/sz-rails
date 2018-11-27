@@ -1,0 +1,34 @@
+@import 'colors';
+@impoort 'site-sizes';
+
+footer {
+  &.main {
+    width: 100%;
+    height: $footer-height;
+    background: $blue;
+    padding: 32px 16px 16px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      &.white-logo {
+        height: $footer-logo-height;
+        margin: 16px 0 8px 0;
+      }
+    }
+
+    .text {
+      color: white;
+    }
+
+    .main {
+      font-size: $text-medium;
+    }
+
+    .copyright {
+      font-size: $text-small;
+      align-self: flex-end;
+    }
+  }
+}
