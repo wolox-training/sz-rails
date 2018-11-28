@@ -14,7 +14,7 @@ body {
       "main-back    back";
 
     grid-template-columns: 40% 37%;
-    grid-template-rows: 6rem 54rem 6rem 54rem;
+    grid-template-rows: 96px 864px 96px 864px;
     padding: 128px 48px 48px;
 
     .inner-grid {
@@ -26,8 +26,6 @@ body {
         "item1   item2"
         "item3   item4";
 
-      background: slategrey;
-
       &.frontend {
         grid-area: front;
       }
@@ -37,7 +35,7 @@ body {
       }
 
       .item-1, .item-2, .item-3, .item-4{
-        margin: 1rem;
+        margin: 16px;
       }
 
       .item-1 {

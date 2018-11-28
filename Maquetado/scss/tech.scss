@@ -19,7 +19,6 @@
 .tech {
   @extend %card-radius;
   align-items: center;
-  background: $green;
   display: flex;
   flex-direction: column;
   height: $card-height;
@@ -30,7 +29,7 @@
   max-width: 100%;
 
   &.main-front, &.main-back {
-    margin: 0 1rem 1rem auto;
+    margin: 0 16px 16px auto;
   }
 
   &.main-front {
