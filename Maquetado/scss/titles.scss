@@ -4,11 +4,14 @@
   display: flex;
   justify-content: flex-start;
   position: relative;
-  margin: 48px 0 16px 0;
   position: relative;
 
-  &:first-child {
-    margin-top: 0;
+  &.back {
+    grid-area: back-title;
+  }
+
+  &.front {
+    grid-area: front-title;
   }
 
   .description {

@@ -16,6 +16,94 @@
   transition: all 0.5s ease-out;
 }
 
+.inner-grid {
+  align-items: center;
+  border-left: 2px $green solid;
+  display: grid;
+  height: 100%;
+  grid-template-areas:
+    "item1   item2"
+    "item3   item4";
+
+  background: slategrey;
+
+  &.frontend {
+    grid-area: front;
+  }
+
+  &.backend {
+    grid-area: back;
+  }
+
+  .item-1, .item-2, .item-3, .item-4{
+    margin: 1rem;
+  }
+
+  .item-1 {
+    grid-area: item1;
+  }
+
+  .item-2 {
+    grid-area: item2;
+  }
+
+  .item-3 {
+    grid-area: item3;
+  }
+
+  .item-4 {
+    grid-area: item4;
+  }
+}
+
+.tech {
+  @extend %card-radius;
+  align-items: center;
+  background: $green;
+  display: flex;
+  flex-direction: column;
+  height: $card-height;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  width: $card-width;
+  max-width: 100%;
+
+  &.main-front, &.main-back {
+    margin: 0 1rem 1rem auto;
+  }
+
+  &.main-front {
+    grid-area: main-front;
+  }
+
+  &.main-back {
+    grid-area: main-back;
+  }
+
+  img {
+    &.icon {
+      height: $title-decoration-height;
+      margin-bottom: 16px;
+      max-width: 100%;
+      object-fit: contain;
+      width: 176px;
+    }
+  }
+
+  .text {
+    font-size: $card-text;
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  .bold {
+    font-weight: bold;
+    margin: 8px 0 16px;
+  }
+}
+
+
 .cards {
   display: flex;
   flex-wrap: wrap;

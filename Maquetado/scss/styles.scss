@@ -1,10 +1,20 @@
 @import 'colors';
 @import 'site-sizes';
 
-body{
+body {
   font-family: 'Open Sans', sans-serif;
 
   .container {
+    align-items: center;
+    display: grid;
+    grid-template-areas:
+      "front-title  front-title"
+      "main-front   front"
+      "back-title   back-title"
+      "main-back    back";
+
+    grid-template-columns: 40% 37%;
+    grid-template-rows: 6rem 54rem 6rem 54rem;
     padding: 128px 48px 48px;
   }
 }
