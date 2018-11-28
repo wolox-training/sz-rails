@@ -1,7 +1,6 @@
 @import 'colors';
 @impoort 'site-sizes';
 
-
 footer.main {
   align-items: center;
   background: $blue;
@@ -12,8 +11,8 @@ footer.main {
   width: 100%;
 
   img.white-logo {
-    margin: 16px 0 8px 0;
     height: $footer-logo-height;
+    margin: 16px 0 8px 0;
   }
 
   .text {
