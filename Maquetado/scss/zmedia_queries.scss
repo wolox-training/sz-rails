@@ -3,8 +3,6 @@
 
 @media only screen and (max-width: 1024px) {
   body {
-    background-color: lightblue;
-
     nav.main {
       h3.text {
         display: none;
@@ -20,7 +18,7 @@
         "main-back"
         "back";
       grid-template-columns: 100%;
-      grid-template-rows: 96px 23rem 100rem 96px 26rem 110rem;
+      grid-template-rows: 96px 368px 1600px 96px 416px 1760px;
 
       .inner-grid {
         margin: auto;
