@@ -25,6 +25,8 @@ body {
       grid-template-areas:
         "item1   item2"
         "item3   item4";
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50% 50%;
 
       &.frontend {
         grid-area: front;
