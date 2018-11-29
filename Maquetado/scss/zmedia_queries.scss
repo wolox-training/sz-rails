@@ -1,0 +1,64 @@
+@import 'colors';
+@import 'site-sizes';
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: lightblue;
+
+    nav.main {
+      h3.text {
+        display: none;
+      }
+    }
+
+    .container {
+      grid-template-areas:
+        "front-title"
+        "main-front"
+        "front"
+        "back-title"
+        "main-back"
+        "back";
+      grid-template-columns: 100%;
+      grid-template-rows: 96px 23rem 100rem 96px 26rem 110rem;
+
+      .inner-grid {
+        margin: auto;
+        border: 0;
+        grid-template-areas:
+          "item1"
+          "item2"
+          "item3"
+          "item4";
+        grid-template-columns: 100%;
+        grid-template-rows: 25% 25% 25% auto;
+        max-width: 100%;
+
+        .item-1, .item-2, .item-3, .item-4{
+          margin: auto 0;
+        }
+      }
+
+      .tech {
+        border-bottom: 2px $green solid;
+        max-width: 100%;
+
+        &:last-child {
+          border: 0;
+        }
+
+        &.main-front, &.main-back {
+          margin: auto;
+        }
+
+        &.main-front {
+          height: 320px;
+        }
+
+        &.main-back, &#aspnet {
+          height: 418px;
+        }
+      }
+    }
+  }
+}
