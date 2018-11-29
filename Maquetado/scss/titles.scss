@@ -6,14 +6,6 @@
   position: relative;
   position: relative;
 
-  &.back {
-    grid-area: back-title;
-  }
-
-  &.front {
-    grid-area: front-title;
-  }
-
   .description {
     align-self: center;
     font-size: $text-big;
