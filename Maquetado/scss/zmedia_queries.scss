@@ -18,7 +18,7 @@
         "main-back"
         "back";
       grid-template-columns: 100%;
-      grid-template-rows: 96px 368px 1600px 96px 416px 1760px;
+      grid-template-rows: 96px 368px 1600px 96px 416px 1376px;
 
       .inner-grid {
         margin: auto;
@@ -26,11 +26,20 @@
         grid-template-areas:
           "item1"
           "item2"
-          "item3"
-          "item4";
+          "item3";
         grid-template-columns: 100%;
-        grid-template-rows: 25% 25% 25% auto;
+        grid-template-rows: 33% 33% auto;
         max-width: 100%;
+
+        &.frontend {
+          grid-template-areas:
+            "item1"
+            "item2"
+            "item3"
+            "item4";
+          grid-template-columns: 100%;
+          grid-template-rows: 25% 25% 25% auto;
+        }
 
         .item-1, .item-2, .item-3, .item-4{
           margin: auto 0;
