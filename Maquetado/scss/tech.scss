@@ -28,7 +28,7 @@
   position: relative;
   width: $card-width;
 
-  &.main-front, &.main-back {
+  &.main-tech {
     border-right: 2px $green solid;
     height: 100%;
     justify-content: center;
@@ -54,5 +54,39 @@
   .bold {
     font-weight: bold;
     margin: 8px 0 16px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    nav.main {
+      h3.text {
+        display: none;
+      }
+    }
+
+    .container {
+      .technologies {
+        grid-template-columns: 100%;
+        grid-gap: 16px;
+
+        .tech {
+          border-bottom: 2px $green solid;
+
+          &.main-tech {
+            border-right: 0;
+            margin: auto;
+          }
+
+          &.large {
+            height: 418px;
+          }
+
+          &.no-last-border {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
   }
 }
