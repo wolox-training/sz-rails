@@ -52,24 +52,24 @@ Maquetado/*.css
 ## REACT ##
 
 # dependencies
-/React/node_modules
-/React/.pnp
-/React/.pnp.js
+/React/training/node_modules
+/React/training/.pnp
+/React/training/.pnp.js
 
 # testing
-/React/coverage
+/React/training/coverage
 
 # production
-/React/build
+/React/training/build
 
 # misc
-/React/.DS_Store
-/React/.env.local
-/React/.env.development.local
-/React/.env.test.local
-/React/.env.production.local
+/React/training/.DS_Store
+/React/training/.env.local
+/React/training/.env.development.local
+/React/training/.env.test.local
+/React/training/.env.production.local
 
-/React/npm-debug.log*
-/React/yarn-debug.log*
-/React/yarn-error.log*
-/React/training/README.md
+/React/training/npm-debug.log*
+/React/training/yarn-debug.log*
+/React/training/yarn-error.log*
+/React/training/training/README.md
