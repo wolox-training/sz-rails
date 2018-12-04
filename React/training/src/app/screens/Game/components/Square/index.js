@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 class Square extends Component {
   render() {
     return (
-      <button className="square">
+      <button className={styles.square}>
         {/* TODO */}
       </button>
     );
