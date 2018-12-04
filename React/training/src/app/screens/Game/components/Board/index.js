@@ -6,15 +6,23 @@ class Board extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      squares: Array(9).fill(null)
+      squares: Array(9).fill(null),
+      xIsNext: true
     }
   }
 
+  nextPlayer() {
+    return this.state.xIsNext ? 'X' : 'O';
+  }
+
   handleClick(i) {
-    console.log('Board-handleClick: ', i);
+    console.log('Board-handleClick: ', i, ' xIsNext: ', this.state.xIsNext);
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-    this.setState({squares: squares});
+    squares[i] = this.nextPlayer();
+    this.setState({
+      squares: squares,
+      xIsNext: !this.state.xIsNext
+    });
   }
 
   renderSquare(i) {
@@ -27,7 +35,7 @@ class Board extends Component {
   }
 
   render() {
-    const status = 'Next player: X';
+    const status = 'Next player: ' + this.nextPlayer();
 
     return (
       <Fragment>
