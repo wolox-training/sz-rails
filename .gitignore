@@ -47,3 +47,29 @@ Maquetado/*.css
 
 ## System ##
 .DS_Store
+
+
+## REACT ##
+
+# dependencies
+/React/training/node_modules
+/React/training/.pnp
+/React/training/.pnp.js
+
+# testing
+/React/training/coverage
+
+# production
+/React/training/build
+
+# misc
+/React/training/.DS_Store
+/React/training/.env.local
+/React/training/.env.development.local
+/React/training/.env.test.local
+/React/training/.env.production.local
+
+/React/training/npm-debug.log*
+/React/training/yarn-debug.log*
+/React/training/yarn-error.log*
+/React/training/training/README.md
