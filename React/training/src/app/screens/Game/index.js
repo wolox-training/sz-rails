@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Board from './components/Board';
-import './game.scss';
+//import './styles.scss';
+import style from './styles.scss';
 
 class Game extends Component {
   render() {
+    console.log(style);
     return (
-      <div className="game">
+      //<div className="game">
+      <div className={style.game}> 
         <div className="game-board">
           <Board />
         </div>
