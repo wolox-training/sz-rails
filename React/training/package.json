@@ -8,8 +8,8 @@
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -24,6 +24,7 @@
   ],
   "devDependencies": {
     "node-sass": "^4.10.0",
+    "react-app-rewired": "^1.6.2",
     "sass-loader": "^7.1.0"
   }
 }
