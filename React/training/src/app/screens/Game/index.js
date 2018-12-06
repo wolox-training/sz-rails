@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Board from './components/Board';
 import styles from './styles.module.scss';
 
+import { connect } from 'react-redux';
+import gameActions from '../../../redux/Game/actions';
+
 class Game extends Component {
   constructor(props) {
     super(props);
@@ -98,9 +101,30 @@ class Game extends Component {
           <div className={styles.status}>{status}</div>
           <ol>{moves}</ol>
         </div>
+
+        <div className='dubiel'>
+          <button className='oh' onClick={() => this.props.restar(1)}>
+            Restar
+          </button>
+
+          {this.props.hey}
+
+          <button className='oh' onClick={() => this.props.sumar(2)}>
+            Sumar
+          </button>
+        </div>
       </div>
     );
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+  hey: state.counter
+});
+
+const mapDispatchToProps = dispatch => ({
+  restar: i => dispatch(gameActions.restar(i)),
+  sumar: i => dispatch(gameActions.sumar(i))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Game);
