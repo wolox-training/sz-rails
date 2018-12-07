@@ -1,38 +1,22 @@
 import React, { Component } from 'react';
 import Board from './components/Board';
 import styles from './styles.module.scss';
-
 import { connect } from 'react-redux';
 import gameActions from '../../../redux/Game/actions';
 
 class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      history: [{
-        squares: Array(9).fill(null),
-      }],
-      stepNumber: 0,
-      xIsNext: true,
-    };
-  }
 
   handleClick(i) {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
+    const history = this.props.gameHistory;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    if (this.calculateWinner(squares) || squares[i]) {
+    //if (this.calculateWinner(squares) || squares[i]) {
+    if (this.props.winner || squares[i]) {
       return;
     }
+
     squares[i] = this.nextPlayer();
-    this.setState({
-      history: history.concat([{
-        squares: squares
-      }]),
-      stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
-    });
 
     this.props.gameHandleClick(squares);
     this.props.stepIncrease();
@@ -40,14 +24,12 @@ class Game extends Component {
   }
 
   nextPlayer() {
-    return this.state.xIsNext ? 'X' : 'O';
+    return this.props.xIsNext ? 'X' : 'O';
   }
 
   jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: (step % 2) === 0,
-    });
+    this.props.gameJumpTo(step);
+    this.props.nextPlayer(step);
   }
 
   calculateWinner(squares) {
@@ -64,7 +46,7 @@ class Game extends Component {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        //this.props.winner(squares[a]);
+        this.props.winningPlayer(squares[a]);
         return squares[a];
       }
     }
@@ -72,14 +54,15 @@ class Game extends Component {
   }
 
   render() {
-    console.log(this.props.leela);
-    console.log('Turno: ', this.props.juas);
-    console.log('X: ', this.props.x);
-    console.log('Winner: ', this.props.win);
+    console.log(this.props.gameHistory);
+    console.log('Turno: ', this.props.gameStep);
+    console.log('X: ', this.props.xIsNext);
+    console.log('Winner: ', this.props.winner);
 
-    const history = this.state.history;
-    const current = history[this.state.stepNumber];
+    const history = this.props.gameHistory;
+    const current = history[this.props.gameStep];
     const winner = this.calculateWinner(current.squares);
+    //const winner = this.props.winner;
 
     const moves = history.map((step, move) => {
       const desc = move ?
@@ -111,39 +94,25 @@ class Game extends Component {
           <div className={styles.status}>{status}</div>
           <ol>{moves}</ol>
         </div>
-
-        <div className='dubiel'>
-          <button className='oh' onClick={() => this.props.restar(1)}>
-            Restar
-          </button>
-
-          {this.props.hey}
-
-          <button className='oh' onClick={() => this.props.sumar(2)}>
-            Sumar
-          </button>
-        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  hey: state.counter,
-  leela: state.history,
-  juas: state.stepNumber,
-  x: state.xIsNext,
-  win: state.winner
+  gameHistory: state.history,
+  gameStep: state.stepNumber,
+  xIsNext: state.xIsNext,
+  winner: state.winner
 });
 
 const mapDispatchToProps = dispatch => ({
-  restar: i => dispatch(gameActions.restar(i)),
-  sumar: i => dispatch(gameActions.sumar(i)),
-
   gameHandleClick: i => dispatch(gameActions.gameHandleClick(i)),
   stepIncrease: () => dispatch(gameActions.stepIncrease()),
   xNext: () => dispatch(gameActions.xNext()),
-  winner: player => dispatch(gameActions.winner(player))
+  winningPlayer: player => dispatch(gameActions.winningPlayer(player)),
+  gameJumpTo: number => dispatch(gameActions.gameJumpTo(number)),
+  nextPlayer: step => dispatch(gameActions.nextPlayer(step))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
