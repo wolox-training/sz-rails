@@ -1,5 +1,13 @@
 const initialState = {
-  counter: 42
+  counter: 42,
+  history: [
+    {
+      squares: Array(9).fill(null)
+    }
+  ],
+  stepNumber: 0,
+  xIsNext: true,
+  winner: null
 }
 
 function reducer (state = initialState, action) {
@@ -13,6 +21,30 @@ function reducer (state = initialState, action) {
       return {
         counter: state.counter - action.foo
       };
+
+    case 'SQUARE_CLICKED':
+      return {
+        ...state,
+        history: state.history.concat({squares: action.index})
+      };
+
+    case 'STEP_INCREASE':
+      return {
+        ...state,
+        stepNumber: state.stepNumber + action.index
+      }
+
+    case 'X_IS_NEXT':
+      return {
+        ...state,
+        xIsNext: !state.xIsNext
+      }
+
+    case 'WINNER':
+      return {
+        ...state,
+        winner: action.player
+      }
 
     default:
       return state;

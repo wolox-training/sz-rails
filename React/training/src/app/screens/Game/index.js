@@ -33,6 +33,10 @@ class Game extends Component {
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
     });
+
+    this.props.gameHandleClick(squares);
+    this.props.stepIncrease();
+    this.props.xNext();
   }
 
   nextPlayer() {
@@ -60,6 +64,7 @@ class Game extends Component {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+        //this.props.winner(squares[a]);
         return squares[a];
       }
     }
@@ -67,6 +72,11 @@ class Game extends Component {
   }
 
   render() {
+    console.log(this.props.leela);
+    console.log('Turno: ', this.props.juas);
+    console.log('X: ', this.props.x);
+    console.log('Winner: ', this.props.win);
+
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = this.calculateWinner(current.squares);
@@ -119,12 +129,21 @@ class Game extends Component {
 }
 
 const mapStateToProps = state => ({
-  hey: state.counter
+  hey: state.counter,
+  leela: state.history,
+  juas: state.stepNumber,
+  x: state.xIsNext,
+  win: state.winner
 });
 
 const mapDispatchToProps = dispatch => ({
   restar: i => dispatch(gameActions.restar(i)),
-  sumar: i => dispatch(gameActions.sumar(i))
+  sumar: i => dispatch(gameActions.sumar(i)),
+
+  gameHandleClick: i => dispatch(gameActions.gameHandleClick(i)),
+  stepIncrease: () => dispatch(gameActions.stepIncrease()),
+  xNext: () => dispatch(gameActions.xNext()),
+  winner: player => dispatch(gameActions.winner(player))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
