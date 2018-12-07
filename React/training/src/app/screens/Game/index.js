@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 import gameActions from '../../../redux/Game/actions';
 
 class Game extends Component {
-
   handleClick(i) {
     const history = this.props.gameHistory;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    //if (this.calculateWinner(squares) || squares[i]) {
     if (this.props.winner || squares[i]) {
       return;
     }
@@ -54,15 +52,9 @@ class Game extends Component {
   }
 
   render() {
-    console.log(this.props.gameHistory);
-    console.log('Turno: ', this.props.gameStep);
-    console.log('X: ', this.props.xIsNext);
-    console.log('Winner: ', this.props.winner);
-
     const history = this.props.gameHistory;
     const current = history[this.props.gameStep];
     const winner = this.calculateWinner(current.squares);
-    //const winner = this.props.winner;
 
     const moves = history.map((step, move) => {
       const desc = move ?
