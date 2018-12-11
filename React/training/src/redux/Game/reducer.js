@@ -1,3 +1,7 @@
+import { calculateWinner } from './../../utils/gameUtils';
+import strings from './../../utils/strings';
+import { actions } from './../Game/actions';
+
 const initialState = {
   history: [
     {
@@ -11,21 +15,11 @@ const initialState = {
 
 function reducer (state = initialState, action) {
   switch (action.type) {
-    case 'SQUARE_CLICKED':
+    case actions.SQUARE_CLICKED:
       return {
         ...state,
-        history: state.history.concat({squares: action.index})
-      };
-
-    case 'STEP_INCREASE':
-      return {
-        ...state,
-        stepNumber: state.stepNumber + action.index
-      };
-
-    case 'X_IS_NEXT':
-      return {
-        ...state,
+        history: state.history.concat({squares: action.index}),
+        stepNumber: state.history.length,
         xIsNext: !state.xIsNext
       };
 
@@ -35,18 +29,13 @@ function reducer (state = initialState, action) {
         winner: action.player
       };
 
-    case 'HISTORY_ITEM_SELECTED':
+    case actions.HISTORY_ITEM_SELECTED:
       return {
         ...state,
         history:    state.history.splice(0, action.index + 1),
         stepNumber: action.index,
-        winner: null
-      };
-
-    case 'NEXT_PLAYER':
-      return {
-        ...state,
-        xIsNext: (action.step % 2) === 0
+        winner: null,
+        xIsNext: (action.index % 2) === 0
       };
 
     default:

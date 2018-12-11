@@ -15,19 +15,11 @@ class Game extends Component {
     }
 
     squares[i] = this.nextPlayer();
-
     this.props.gameHandleClick(squares);
-    this.props.stepIncrease();
-    this.props.xNext();
   }
 
   nextPlayer() {
     return this.props.xIsNext ? 'X' : 'O';
-  }
-
-  jumpTo(step) {
-    this.props.gameJumpTo(step);
-    this.props.nextPlayer(step);
   }
 
   calculateWinner(squares) {
@@ -52,6 +44,11 @@ class Game extends Component {
   }
 
   render() {
+    console.log(this.props.gameHistory);
+    console.log('Turno: ', this.props.gameStep);
+    console.log('xIsNext: ', this.props.xIsNext);
+    console.log('Winner: ', this.props.winner);
+
     const history = this.props.gameHistory;
     const current = history[this.props.gameStep];
     const winner = this.calculateWinner(current.squares);
@@ -62,7 +59,7 @@ class Game extends Component {
         'Go to game start';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button onClick={() => this.props.gameJumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -100,11 +97,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   gameHandleClick: i => dispatch(gameActions.gameHandleClick(i)),
-  stepIncrease: () => dispatch(gameActions.stepIncrease()),
-  xNext: () => dispatch(gameActions.xNext()),
   winningPlayer: player => dispatch(gameActions.winningPlayer(player)),
   gameJumpTo: number => dispatch(gameActions.gameJumpTo(number)),
-  nextPlayer: step => dispatch(gameActions.nextPlayer(step))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);
