@@ -14,28 +14,35 @@ const initialState = {
 }
 
 function reducer (state = initialState, action) {
+  const history = state.history.slice(0, state.stepNumber + 1);
+  const current = history[history.length - 1];
+  const squares = [...current.squares];
+  const i = action.index;
+
+  if ((squares[i] && action.type === actions.SQUARE_CLICKED) || (state.winner && action.type === actions.SQUARE_CLICKED)) {
+    return state;
+  }
+
+  squares[i] = state.xIsNext ? strings.PLAYER_ONE : strings.PLAYER_TWO;
+  const winner = calculateWinner(squares);
+
   switch (action.type) {
     case actions.SQUARE_CLICKED:
       return {
         ...state,
-        history: state.history.concat({squares: action.index}),
+        history: state.history.concat({ squares }),
         stepNumber: state.history.length,
-        xIsNext: !state.xIsNext
-      };
-
-    case 'WINNER':
-      return {
-        ...state,
-        winner: action.player
+        xIsNext: !state.xIsNext,
+        winner
       };
 
     case actions.HISTORY_ITEM_SELECTED:
       return {
         ...state,
-        history:    state.history.splice(0, action.index + 1),
+        history: state.history.slice(0, action.index + 1),
         stepNumber: action.index,
-        winner: null,
-        xIsNext: (action.index % 2) === 0
+        xIsNext: (action.index % 2) === 0,
+        winner: null
       };
 
     default:
