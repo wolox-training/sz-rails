@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const getValidityClassName = meta => {
   if (meta.active) {
@@ -18,14 +18,14 @@ export const customInput = props => {
   const { label, input, type, meta } = props;
   return (
     <div className={ cx(
-        'input',
+        styles.input,
         { dirty: meta.dirty },
         getValidityClassName(meta)
       )}>
       <label>{props.label}</label>
       <input {...props.input} type={props.type} />
       { meta.error && meta.touched && !meta.active && (
-        <div className="error">
+        <div className={styles.error}>
           {meta.error}
         </div>
       )}
