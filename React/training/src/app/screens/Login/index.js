@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Form from './components/Form';
 import { connect } from 'react-redux';
 import authActions from '../../../redux/Auth/actions';
@@ -9,11 +9,7 @@ class Login extends Component {
   };
 
   render() {
-    return (
-      <Fragment>
-        <Form onSubmit={this.submit} />
-      </Fragment>
-    );
+    return <Form onSubmit={this.submit} />;
   }
 }
 

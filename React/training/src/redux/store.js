@@ -4,14 +4,6 @@ import thunk from 'redux-thunk';
 import { reducer as form } from 'redux-form';
 import auth from './Auth/reducer.js';
 
-/*
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-*/
-
-
 const reducers = combineReducers({
   reducer,
   form,
