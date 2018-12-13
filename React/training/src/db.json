@@ -1,0 +1,7 @@
+{
+  "users": [
+    {"email": "sebastian.zapata@wolox.co", "password": "12345678"},
+    {"email": "ble@bla.co", "password": "12345678"},
+    {"email": "mancha@leela.com.co", "password": "12345678"}
+  ]
+}
