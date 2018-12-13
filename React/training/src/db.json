@@ -1,7 +1,19 @@
 {
   "users": [
-    {"email": "sebastian.zapata@wolox.co", "password": "12345678"},
-    {"email": "ble@bla.co", "password": "12345678"},
-    {"email": "mancha@leela.com.co", "password": "12345678"}
+    {
+      "email": "sebastian.zapata@wolox.co",
+      "password": "12345678",
+      "token": "sebastian.zapata"
+    },
+    {
+      "email": "ble@bla.co",
+      "password": "12345678",
+      "token": "ble"
+    },
+    {
+      "email": "mancha@leela.com.co",
+      "password": "12345678",
+      "token": "mancha"
+    }
   ]
 }
