@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './styles.scss';
-//import styles from './styles.module.scss';
+import styles from './styles.module.scss';
 import logo from './../../../assets/react_icon.svg';
 
 class Topbar extends Component {
   render() {
     return (
-      <nav className={'main'}>
-        <a href="https://reactjs.org/" target="_blank" className='link'>
-          <img src={logo} alt="wolox_logo" className="logo" />
+      <nav className={styles.main}>
+        <a href="https://reactjs.org/" target="_blank" className={styles.link}>
+          <img src={logo} alt="wolox_logo" className={styles.logo} />
         </a>
-        <a href="http://localhost:3000/" className='link text'>
+        <a href="http://localhost:3000/" className={`${styles.link} ${styles.text}`}>
           <span>Page</span>
         </a>
-        <a href="http://localhost:3000/" className='link sign-out'>
+        <a href="http://localhost:3000/" className={`${styles.link} ${styles.signout}`}>
           <i className="fas fa-sign-out-alt"></i>
         </a>
       </nav>
