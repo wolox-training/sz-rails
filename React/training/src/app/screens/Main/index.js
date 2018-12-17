@@ -5,11 +5,9 @@ import { connect } from 'react-redux';
 
 class Main extends Component {
   render() {
-    if (this.props.token) {
-      return <Game />;
-    } else {
-      return <Login />;
-    }
+    return (
+      this.props.token ? <Game /> : <Login />
+    );
   }
 }
 

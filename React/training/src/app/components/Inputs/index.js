@@ -1,21 +1,11 @@
 import React from 'react';
 import cx from 'classnames';
 import styles from './styles.module.scss';
+import { getValidityClassName } from './../../../utils/inputsValidation';
 
-const getValidityClassName = meta => {
-  if (meta.active) {
-    return;
-  }
-  if (meta.touched && meta.invalid) {
-    return 'invalid';
-  }
-  if (meta.touched && meta.valid) {
-    return 'valid';
-  }
-};
-
-export const customInput = props => {
+function CustomInput(props) {
   const { label, input, type, meta } = props;
+
   return (
     <div className={ cx(
         styles.input,
@@ -23,7 +13,7 @@ export const customInput = props => {
         getValidityClassName(meta)
       )}>
       <label>{props.label}</label>
-      <input {...props.input} type={props.type} />
+      <input {...props.input} type={props.type} className={styles.box}/>
       { meta.error && meta.touched && !meta.active && (
         <div className={styles.error}>
           {meta.error}
@@ -32,3 +22,5 @@ export const customInput = props => {
     </div>
   );
 }
+
+export default CustomInput;
