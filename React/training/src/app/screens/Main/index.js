@@ -18,14 +18,6 @@ class Main extends Component {
       );
     } else {
       return <Login />;
-/*
-      return (
-        <Fragment>
-          <Topbar />
-          <Login />
-        </Fragment>
-      );
-      */
     }
   }
 }
