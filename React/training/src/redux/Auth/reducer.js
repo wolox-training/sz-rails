@@ -12,6 +12,12 @@ function auth (state = initialState, action) {
         token: action.token
       };
 
+    case actions.USER_LOGOUT:
+      return {
+        ...state,
+        token: action.token
+      }
+
     default:
       return state;
   }
