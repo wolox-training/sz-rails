@@ -13,6 +13,9 @@ function auth (state = initialState, action) {
       };
 
     case actions.USER_LOGOUT:
+      const token = localStorage.getItem("token");
+      token && localStorage.removeItem("token");
+
       return {
         ...state,
         token: action.token
