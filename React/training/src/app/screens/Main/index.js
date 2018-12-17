@@ -7,8 +7,7 @@ import styles from './styles.module.scss';
 
 class Main extends Component {
   render() {
-    if (this.props.token) {
-      //return <Game />;
+    if (this.props.token || localStorage.getItem("token")) {
       return (
         <Fragment>
           <Topbar />
@@ -18,13 +17,15 @@ class Main extends Component {
         </Fragment>
       );
     } else {
-      //return <Login />;
+      return <Login />;
+/*
       return (
         <Fragment>
           <Topbar />
           <Login />
         </Fragment>
       );
+      */
     }
   }
 }
