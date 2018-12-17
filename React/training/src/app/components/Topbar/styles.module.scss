@@ -15,7 +15,7 @@
   align-self: center;
   margin: 0 0.5rem;
   text-decoration: none;
-  color: rgba(0,0,0, 0.5);;
+  color: rgba(0,0,0, 0.5);
   font-size: 24px;
 
   &:hover {
@@ -27,6 +27,10 @@
     right: 2rem;
     position: absolute;
     top: calc(50% - 1rem);
+  }
+
+  &.active {
+    color: red;
   }
 }
 
