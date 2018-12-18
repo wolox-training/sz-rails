@@ -1,23 +1,20 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Login from './../Login';
 import Game from './../Game';
-import Topbar from './../../components/Topbar';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
+import { getToken } from './../../../utils/mainUtils';
 
 class Main extends Component {
   render() {
-    if (this.props.token || localStorage.getItem("token")) {
+    if (this.props.token || getToken('token')) {
       return (
-        <Fragment>
-          <Topbar />
-          <div className={styles.game}>
-            <Game />
-          </div>
-        </Fragment>
+        <div className={styles.game}>
+          <Game />
+        </div>
       );
     } else {
-      return <Login />;
+      return <Login />
     }
   }
 }
