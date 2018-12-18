@@ -3,11 +3,11 @@ import Login from './../Login';
 import Game from './../Game';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
-import { getToken } from './../../../utils/mainUtils';
+import { userSignedIn } from './../../../utils/mainUtils';
 
 class Main extends Component {
   render() {
-    if (this.props.token || getToken('token')) {
+    if ( userSignedIn(this.props.token, 'token') ) {
       return (
         <div className={styles.game}>
           <Game />

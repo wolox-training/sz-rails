@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import logo from './../../../assets/react_icon.svg';
 import authActions from './../../../redux/Auth/actions';
 import { Link } from 'react-router-dom';
-import { getToken } from './../../../utils/mainUtils';
+import { userSignedIn } from './../../../utils/mainUtils';
 import { CONSTANTS } from './../../../config/constants';
 
 class Topbar extends Component {
@@ -15,7 +15,7 @@ class Topbar extends Component {
 
   render() {
     return (
-      ( this.props.token || getToken('token') ) && (
+      ( userSignedIn(this.props.token, 'token') ) && (
         <nav className={styles.main}>
           <Link to={CONSTANTS.REACT_URL} className={styles.link} target="_blank" rel='noopener noreferrer'>
             <img src={logo} alt="react_logo" className={styles.logo} />
