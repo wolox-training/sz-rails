@@ -9,7 +9,7 @@ class Topbar extends Component {
   render() {
     return (
       <nav className={styles.main}>
-        <Link to="//www.google.com.co" className={styles.link} target="_blank" rel='noopener noreferrer'>
+        <Link to="//reactjs.org/" className={styles.link} target="_blank" rel='noopener noreferrer'>
           <img src={logo} alt="wolox_logo" className={styles.logo} />
         </Link>
         <Link to='/' className={styles.link}>Main</Link>

@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import authActions from '../../../redux/Auth/actions';
 
 class Login extends Component {
-  submit = values => {
-    this.props.userLogin(values);
-  };
+  submit = values => this.props.userLogin(values);
 
   render() {
     return <Form onSubmit={this.submit} />;
